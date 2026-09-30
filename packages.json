@@ -6,7 +6,7 @@
       "url": "github:playfairs/ripnet",
       "language": "d",
       "riders": {
-        "commands": ["dmd", "gdb"]
+        "commands": ["gdb"]
       }
     },
     {
