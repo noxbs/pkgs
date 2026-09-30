@@ -1,0 +1,22 @@
+{
+  "packages": [
+    {
+      "name": "ripnet",
+      "description": "Network diagnostics, packet analysis, observability, and authorized load-testing toolkit.",
+      "url": "github:playfairs/ripnet",
+      "language": "d",
+      "riders": {
+        "commands": ["dmd"]
+      }
+    },
+    {
+      "name": "vessel",
+      "description": "A vessel for executable payloads.",
+      "url": "github:playfairs/vessel",
+      "language": "rust",
+      "riders": {
+        "commands": ["cargo"]
+      }
+    }
+  ]
+}

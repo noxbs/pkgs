@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nox Packages</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">Nox Packages</div>
+        <div class="search-box">
+          <input id="search" type="search" placeholder="Search packages" aria-label="Search packages" />
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <p class="eyebrow">Package registry</p>
+        <h1>Install Nox projects by package name</h1>
+        <p class="lede">
+          Discover validated Nox projects, view their source URL, language, and Rider requirements,
+          and install them with <code>nox install pkgs:NAME</code>.
+        </p>
+      </section>
+
+      <div id="list" class="package-list" aria-live="polite"></div>
+    </main>
+
+    <template id="package-template">
+      <article class="package-card">
+        <h2 class="package-name"></h2>
+        <p class="package-description"></p>
+        <dl class="meta">
+          <div><dt>Language</dt><dd class="package-language"></dd></div>
+          <div><dt>Source</dt><dd class="package-source"></dd></div>
+          <div><dt>Riders</dt><dd class="package-riders"></dd></div>
+          <div><dt>Install</dt><dd><button class="package-install" type="button" title="Copy install command"></button></dd></div>
+        </dl>
+      </article>
+    </template>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

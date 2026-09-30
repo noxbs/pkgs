@@ -1,0 +1,233 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f7f4;
+  --surface: #ffffff;
+  --border: #dce5dc;
+  --text: #1d2a23;
+  --muted: #65736a;
+  --accent: #236b50;
+  --accent-soft: #e8f2eb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  background-color: var(--bg);
+  background-image: radial-gradient(#dce8dd 0.7px, transparent 0.7px);
+  background-size: 18px 18px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.container {
+  width: min(1000px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.topbar {
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.94);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  gap: 1rem;
+}
+
+.brand {
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.search-box input {
+  width: min(340px, 70vw);
+  min-height: 42px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 0.6rem 0.8rem;
+  font: inherit;
+}
+
+.search-box input:focus-visible {
+  outline: 3px solid #b8d5c2;
+  outline-offset: 2px;
+}
+
+.hero {
+  max-width: 720px;
+  padding: 3.25rem 0 2rem;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  margin: 0 0 1rem;
+}
+
+.hero h1 {
+  margin: 0 0 1rem;
+  max-width: 660px;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.lede {
+  color: var(--muted);
+  max-width: 680px;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.package-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 390px), 1fr));
+  gap: 0.85rem;
+  padding: 0 0 3rem;
+}
+
+.package-card {
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.15rem 1.2rem;
+  transition: border-color 140ms ease, transform 140ms ease;
+}
+
+.package-card:hover {
+  border-color: #a9c6b0;
+  transform: translateY(-2px);
+}
+
+.package-name {
+  margin: 0 0 0.4rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.package-description {
+  margin: 0 0 1.1rem;
+  color: var(--muted);
+  min-height: 3em;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem 1rem;
+  margin: 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid #edf1ed;
+}
+
+.meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.meta dt {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.meta dd {
+  margin: 0;
+  color: var(--text);
+  overflow-wrap: anywhere;
+  font-size: 0.9rem;
+}
+
+.package-source a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.package-source a:hover {
+  color: #174936;
+}
+
+.package-install {
+  width: fit-content;
+  max-width: 100%;
+  border: 0;
+  padding: 0.18rem 0.4rem;
+  border-radius: 3px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.8rem !important;
+  line-height: 1.5;
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.package-install:hover {
+  background: #d8eadd;
+}
+
+.package-install:focus-visible,
+.package-source a:focus-visible {
+  outline: 3px solid #b8d5c2;
+  outline-offset: 2px;
+}
+
+code {
+  font-family: "SFMono-Regular", Consolas, monospace;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 3px;
+  padding: 0.12rem 0.3rem;
+}
+
+@media (max-width: 640px) {
+  .nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    padding: 0.8rem 0;
+  }
+
+  .container {
+    width: min(100% - 2rem, 1000px);
+  }
+
+  .hero {
+    padding: 2.2rem 0 1.4rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .package-description {
+    min-height: 0;
+  }
+}
