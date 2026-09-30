@@ -4,6 +4,32 @@ const search = document.querySelector('#search');
 
 let packages = [];
 
+async function copyText(text) {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch {
+  }
+
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.left = '-9999px';
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  try {
+    return document.execCommand('copy');
+  } catch {
+    return false;
+  } finally {
+    textarea.remove();
+  }
+}
+
 function render(items) {
   list.replaceChildren();
 
@@ -40,18 +66,15 @@ function render(items) {
     install.textContent = command;
     install.setAttribute('aria-label', `Copy command: ${command}`);
     install.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(command);
-        install.textContent = 'Copied!';
-        install.setAttribute('aria-label', 'Install command copied');
-      } catch {
-        install.textContent = 'Copy failed';
-        install.setAttribute('aria-label', 'Could not copy install command');
-      }
+      const copied = await copyText(command);
+      install.textContent = copied ? 'Copied!' : command;
+      install.setAttribute('aria-label', copied ? 'Install command copied' : `Copy command: ${command}`);
+      install.title = copied ? 'Copied to clipboard' : 'Clipboard access failed; select the command to copy it';
 
       window.setTimeout(() => {
         install.textContent = command;
         install.setAttribute('aria-label', `Copy command: ${command}`);
+        install.title = 'Copy install command';
       }, 1400);
     });
     list.appendChild(fragment);

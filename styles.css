@@ -1,12 +1,13 @@
 :root {
-  color-scheme: light;
-  --bg: #f4f7f4;
-  --surface: #ffffff;
-  --border: #dce5dc;
-  --text: #1d2a23;
-  --muted: #65736a;
-  --accent: #236b50;
-  --accent-soft: #e8f2eb;
+  color-scheme: dark;
+  --bg: #3A224D;
+  --surface: #4a315c;
+  --surface-raised: #523a64;
+  --border: #6a5279;
+  --text: #f6eff9;
+  --muted: #d1c2da;
+  --accent: #f1c17d;
+  --accent-soft: #624653;
 }
 
 * { box-sizing: border-box; }
@@ -15,8 +16,6 @@ body {
   margin: 0;
   font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
   background-color: var(--bg);
-  background-image: radial-gradient(#dce8dd 0.7px, transparent 0.7px);
-  background-size: 18px 18px;
   color: var(--text);
   line-height: 1.5;
 }
@@ -28,7 +27,7 @@ body {
 
 .topbar {
   border-bottom: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.94);
+  background: #2f1c3e;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -53,15 +52,20 @@ body {
   width: min(340px, 70vw);
   min-height: 42px;
   border: 1px solid var(--border);
-  background: var(--surface);
+  background: var(--surface-raised);
   color: var(--text);
   border-radius: 6px;
   padding: 0.6rem 0.8rem;
   font: inherit;
 }
 
+.search-box input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
 .search-box input:focus-visible {
-  outline: 3px solid #b8d5c2;
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -71,7 +75,7 @@ body {
 }
 
 .eyebrow {
-  color: var(--accent);
+  color: #a9ddc2;
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -104,7 +108,8 @@ body {
 
 .package-card {
   min-width: 0;
-  background: var(--surface);
+  background: var(--surface-raised);
+  color: var(--text);
   border: 1px solid var(--border);
   border-radius: 6px;
   padding: 1.15rem 1.2rem;
@@ -112,7 +117,7 @@ body {
 }
 
 .package-card:hover {
-  border-color: #a9c6b0;
+  border-color: #a88bb7;
   transform: translateY(-2px);
 }
 
@@ -135,7 +140,7 @@ body {
   gap: 0.85rem 1rem;
   margin: 0;
   padding-top: 0.9rem;
-  border-top: 1px solid #edf1ed;
+  border-top: 1px solid var(--border);
 }
 
 .meta div {
@@ -166,7 +171,7 @@ body {
 }
 
 .package-source a:hover {
-  color: #174936;
+  color: #ffdda9;
 }
 
 .package-install {
@@ -175,8 +180,8 @@ body {
   border: 0;
   padding: 0.18rem 0.4rem;
   border-radius: 3px;
-  background: var(--accent-soft);
-  color: var(--accent);
+  background: #f1c17d;
+  color: #34203f;
   font-family: "SFMono-Regular", Consolas, monospace;
   font-size: 0.8rem !important;
   line-height: 1.5;
@@ -186,18 +191,18 @@ body {
 }
 
 .package-install:hover {
-  background: #d8eadd;
+  background: #ffdda9;
 }
 
 .package-install:focus-visible,
 .package-source a:focus-visible {
-  outline: 3px solid #b8d5c2;
+  outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 
 code {
   font-family: "SFMono-Regular", Consolas, monospace;
-  color: var(--accent);
+  color: #f6d59f;
   background: var(--accent-soft);
   border-radius: 3px;
   padding: 0.12rem 0.3rem;
