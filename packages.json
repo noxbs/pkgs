@@ -17,6 +17,15 @@
       "riders": {
         "commands": ["cargo"]
       }
+    },
+    {
+      "name": "fsscan",
+      "description": "A simple File System Scanner written in Go, for Linux and macOS.",
+      "url": "github:playfairs/fsscan",
+      "language": "go",
+      "riders": {
+        "commands": ["go"]
+      }
     }
   ]
 }
